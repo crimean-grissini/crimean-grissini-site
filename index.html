@@ -19,7 +19,7 @@
   header {
     background: linear-gradient(135deg, #1a7a8c 0%, #2ba3b8 100%);
     color: #fff;
-    padding: 20px 0;
+    padding: 15px 0;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -52,40 +52,48 @@
   }
   .header-contacts a:hover { opacity: 0.8; }
 
-  /* Hero */
+  /* Главный экран */
   .hero {
-    background: linear-gradient(135deg, #e8f4f8 0%, #fff8e7 100%);
-    padding: 70px 0 60px;
+    position: relative;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    color: #fff;
+    padding: 80px 20px;
+    background: linear-gradient(rgba(26, 122, 140, 0.75), rgba(26, 122, 140, 0.75)),
+                url('crimean.jpg') center/cover no-repeat;
   }
+  .hero-content { max-width: 800px; }
   .hero h1 {
-    font-size: 42px;
-    color: #1a7a8c;
+    font-size: 46px;
     margin-bottom: 20px;
     line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
   }
-  .hero h1 span { color: #d97706; }
+  .hero h1 span { color: #ffd166; }
   .hero p {
     font-size: 19px;
-    max-width: 750px;
-    margin: 0 auto 30px;
-    color: #4a5568;
+    margin-bottom: 30px;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.3);
   }
   .hero-badges {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 12px;
     flex-wrap: wrap;
     margin-bottom: 35px;
   }
   .badge {
-    background: #fff;
-    border: 2px solid #2ba3b8;
-    color: #1a7a8c;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.4);
+    color: #fff;
     padding: 8px 18px;
     border-radius: 30px;
     font-size: 14px;
     font-weight: 600;
+    backdrop-filter: blur(5px);
   }
   .btn {
     display: inline-block;
@@ -97,14 +105,14 @@
     font-size: 17px;
     font-weight: 600;
     transition: all 0.3s;
-    box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+    box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
     border: none;
     cursor: pointer;
   }
   .btn:hover {
     background: #b45309;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4);
+    box-shadow: 0 6px 20px rgba(217, 119, 6, 0.5);
   }
   .btn-outline {
     background: transparent;
@@ -118,9 +126,9 @@
   }
 
   /* Секции */
-  section { padding: 60px 0; }
+  section { padding: 70px 0; }
   section h2 {
-    font-size: 32px;
+    font-size: 34px;
     color: #1a7a8c;
     margin-bottom: 15px;
     text-align: center;
@@ -145,7 +153,7 @@
   /* Продукция */
   .products {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-top: 20px;
   }
@@ -156,20 +164,28 @@
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     transition: transform 0.3s, box-shadow 0.3s;
     border: 1px solid #e8eef2;
+    display: flex;
+    flex-direction: column;
   }
   .product-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.12);
   }
   .product-image {
-    height: 220px;
-    background: linear-gradient(135deg, #e8f4f8, #fff8e7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 60px;
+    height: 280px;
+    overflow: hidden;
+    background: #e8f4f8;
   }
-  .product-body { padding: 25px; }
+  .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+  }
+  .product-card:hover .product-image img {
+    transform: scale(1.05);
+  }
+  .product-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
   .product-body h3 {
     font-size: 22px;
     color: #1a7a8c;
@@ -185,6 +201,7 @@
     font-size: 14px;
     color: #718096;
     margin-bottom: 15px;
+    flex-grow: 1;
   }
   .product-specs li { padding: 4px 0; }
   .product-specs li::before {
@@ -196,16 +213,15 @@
     display: inline-block;
     background: #fff8e7;
     color: #d97706;
-    padding: 6px 14px;
+    padding: 8px 16px;
     border-radius: 8px;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 16px;
+    align-self: flex-start;
   }
 
   /* Преимущества */
-  .features {
-    background: #f7fafc;
-  }
+  .features { background: #f7fafc; }
   .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -219,18 +235,43 @@
     text-align: center;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   }
-  .feature-icon {
-    font-size: 40px;
-    margin-bottom: 15px;
-  }
+  .feature-icon { font-size: 40px; margin-bottom: 15px; }
   .feature h4 {
     font-size: 18px;
     color: #1a7a8c;
     margin-bottom: 10px;
   }
-  .feature p {
-    font-size: 14px;
+  .feature p { font-size: 14px; color: #718096; }
+
+  /* Где нас найти */
+  .where {
+    background: linear-gradient(135deg, #fff8e7 0%, #e8f4f8 100%);
+  }
+  .where-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .where-item {
+    background: #fff;
+    padding: 25px 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-top: 4px solid #2ba3b8;
+    font-weight: 600;
+    color: #1a7a8c;
+    font-size: 17px;
+    transition: transform 0.3s;
+  }
+  .where-item:hover { transform: translateY(-3px); }
+  .where-note {
+    text-align: center;
+    margin-top: 25px;
     color: #718096;
+    font-size: 15px;
+    font-style: italic;
   }
 
   /* Условия */
@@ -252,10 +293,7 @@
     font-size: 16px;
     margin-bottom: 8px;
   }
-  .term p {
-    font-size: 14px;
-    color: #4a5568;
-  }
+  .term p { font-size: 14px; color: #4a5568; }
 
   /* Контакты */
   .contacts {
@@ -277,10 +315,7 @@
     border-radius: 12px;
     backdrop-filter: blur(10px);
   }
-  .contact-item .icon {
-    font-size: 32px;
-    margin-bottom: 12px;
-  }
+  .contact-item .icon { font-size: 32px; margin-bottom: 12px; }
   .contact-item h4 {
     font-size: 15px;
     margin-bottom: 8px;
@@ -305,14 +340,19 @@
     font-size: 18px;
     margin-bottom: 20px;
   }
-  .cta-block .btn {
-    background: #ffd166;
-    color: #1a7a8c;
+  .cta-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
   }
-  .cta-block .btn:hover {
-    background: #fff;
-    color: #1a7a8c;
+  .cta-block .btn { background: #ffd166; color: #1a7a8c; }
+  .cta-block .btn:hover { background: #fff; color: #1a7a8c; }
+  .btn-white {
+    background: #fff !important;
+    color: #1a7a8c !important;
   }
+  .btn-white:hover { background: #ffd166 !important; color: #1a7a8c !important; }
 
   /* Подвал */
   footer {
@@ -324,14 +364,51 @@
   }
   footer a { color: #2ba3b8; text-decoration: none; }
 
+  /* Плавающие кнопки мессенджеров */
+  .float-messengers {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .float-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    transition: transform 0.3s, box-shadow 0.3s;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .float-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  }
+  .float-wa { background: #25D366; }
+  .float-tg { background: #0088cc; }
+  .float-max { background: #6e3aff; }
+  .float-btn svg { width: 28px; height: 28px; fill: #fff; }
+
   /* Адаптив */
   @media (max-width: 768px) {
     .hero h1 { font-size: 30px; }
     .hero p { font-size: 16px; }
     section h2 { font-size: 26px; }
     .header-inner { flex-direction: column; text-align: center; }
-    .header-contacts { justify-content: center; font-size: 14px; }
+    .header-contacts { justify-content: center; font-size: 14px; gap: 12px; }
     .btn { padding: 14px 30px; font-size: 16px; }
+    .float-messengers { right: 12px; bottom: 12px; gap: 10px; }
+    .float-btn { width: 48px; height: 48px; }
+    .float-btn svg { width: 24px; height: 24px; }
+    .product-image { height: 220px; }
   }
 </style>
 </head>
@@ -350,7 +427,7 @@
 
 <!-- ГЛАВНЫЙ ЭКРАН -->
 <section class="hero">
-  <div class="container">
+  <div class="hero-content">
     <h1>Хлебные палочки<br><span>«Крымские Гриссини»</span></h1>
     <p>100% локальный продукт из Крыма. Натуральные ингредиенты, ручная формовка, авторская сувенирная упаковка. Производим с 2015 года.</p>
     <div class="hero-badges">
@@ -372,7 +449,9 @@
     <div class="products">
       <!-- Крымские -->
       <div class="product-card">
-        <div class="product-image">🏖️</div>
+        <div class="product-image">
+          <img src="crimean.jpg" alt="Крымские Гриссини — хлебные палочки">
+        </div>
         <div class="product-body">
           <h3>Крымские Гриссини</h3>
           <p>Классика с крымским характером: розмарин, розовая соль, кунжут, лён.</p>
@@ -387,7 +466,9 @@
 
       <!-- Кубанские -->
       <div class="product-card">
-        <div class="product-image">🌻</div>
+        <div class="product-image">
+          <img src="lineup.jpg" alt="Кубанские Гриссини">
+        </div>
         <div class="product-body">
           <h3>Кубанские Гриссини</h3>
           <p>Кубанский колорит: вяленые томаты, чеснок, кунжут, лён.</p>
@@ -402,7 +483,9 @@
 
       <!-- Кавказские -->
       <div class="product-card">
-        <div class="product-image">⛰️</div>
+        <div class="product-image">
+          <img src="macro.jpg" alt="Кавказские Гриссини">
+        </div>
         <div class="product-body">
           <h3>Кавказские Гриссини</h3>
           <p>Кавказские мотивы: сванская соль, кунжут, лён, чеснок.</p>
@@ -448,7 +531,7 @@
       <div class="feature">
         <div class="feature-icon">🍷</div>
         <h4>Сочетается с вином</h4>
-        <p>Идеальная закуска к вину и сыру. Уже представлены в КубаньВино, Фанагория, Золотая Балка, Новый Свет.</p>
+        <p>Идеальная закуска к вину и сыру. Уже представлены в винных магазинах Крыма.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">📈</div>
@@ -456,6 +539,25 @@
         <p>В 2026 году модернизируем производство и расширяем линейку. Присоединяйтесь к росту.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ГДЕ НАС НАЙТИ -->
+<section class="where">
+  <div class="container">
+    <h2>Где нас можно купить</h2>
+    <p class="section-subtitle">Наша продукция уже представлена в ведущих винных магазинах и розничных сетях Крыма.</p>
+
+    <div class="where-grid">
+      <div class="where-item">🍷 КубаньВино</div>
+      <div class="where-item">🍇 Фанагория</div>
+      <div class="where-item">🥂 Новый Свет</div>
+      <div class="where-item">🏆 Золотая Балка</div>
+      <div class="where-item">⛽ Атан</div>
+      <div class="where-item">⛽ ТЭС</div>
+    </div>
+
+    <p class="where-note">А также в розничных сетях Крыма и на маркетплейсах. Продукция представлена в 5 регионах России.</p>
   </div>
 </section>
 
@@ -517,9 +619,10 @@
 
     <div class="cta-block">
       <p>Хотите получить прайс-лист и условия для оптовых партнёров?</p>
-      <a href="tel:+79788620035" class="btn">Позвонить сейчас</a>
-      &nbsp;&nbsp;
-      <a href="mailto:grissini.crimea@mail.ru?subject=Запрос прайс-листа Крымские Гриссини" class="btn" style="background: #fff; color: #1a7a8c;">Написать на email</a>
+      <div class="cta-buttons">
+        <a href="tel:+79788620035" class="btn">Позвонить сейчас</a>
+        <a href="mailto:grissini.crimea@mail.ru?subject=Запрос прайс-листа Крымские Гриссини" class="btn btn-white">Написать на email</a>
+      </div>
     </div>
   </div>
 </section>
@@ -531,6 +634,19 @@
     <p style="margin-top: 8px;">Сайт: <a href="https://grissini.shop">grissini.shop</a></p>
   </div>
 </footer>
+
+<!-- ПЛАВАЮЩИЕ КНОПКИ МЕССЕНДЖЕРОВ -->
+<div class="float-messengers">
+  <a href="https://wa.me/79788620035" class="float-btn float-wa" target="_blank" rel="noopener" title="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+  <a href="https://t.me/+79788620035" class="float-btn float-tg" target="_blank" rel="noopener" title="Telegram">
+    <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+  </a>
+  <a href="https://max.ru/u/79788620035" class="float-btn float-max" target="_blank" rel="noopener" title="MAX">
+    <svg viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18l7.5 3.75L12 11.68 4.5 7.93 12 4.18zM4 9.5l7 3.5v6.32l-7-3.5V9.5zm9 9.82V13l7-3.5v6.32l-7 3.5z"/></svg>
+  </a>
+</div>
 
 </body>
 </html>
