@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Крымские Гриссини — производство хлебных палочек | Керчь</title>
+<meta name="description" content="Крымские Гриссини — локальный продукт из Крыма. Хлебные палочки ручной формовки. Опт от 100 упаковок. Доставка по Крыму и России.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    color: #2c3e50;
+    line-height: 1.6;
+    background: #fdfcf9;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+  /* Шапка */
+  header {
+    background: linear-gradient(135deg, #1a7a8c 0%, #2ba3b8 100%);
+    color: #fff;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .logo {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+  .logo span { color: #ffd166; }
+  .header-contacts {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 15px;
+  }
+  .header-contacts a {
+    color: #fff;
+    text-decoration: none;
+    transition: opacity 0.3s;
+  }
+  .header-contacts a:hover { opacity: 0.8; }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, #e8f4f8 0%, #fff8e7 100%);
+    padding: 70px 0 60px;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 42px;
+    color: #1a7a8c;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+  .hero h1 span { color: #d97706; }
+  .hero p {
+    font-size: 19px;
+    max-width: 750px;
+    margin: 0 auto 30px;
+    color: #4a5568;
+  }
+  .hero-badges {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+  }
+  .badge {
+    background: #fff;
+    border: 2px solid #2ba3b8;
+    color: #1a7a8c;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .btn {
+    display: inline-block;
+    background: #d97706;
+    color: #fff;
+    padding: 16px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+    border: none;
+    cursor: pointer;
+  }
+  .btn:hover {
+    background: #b45309;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4);
+  }
+  .btn-outline {
+    background: transparent;
+    border: 2px solid #d97706;
+    color: #d97706;
+    box-shadow: none;
+  }
+  .btn-outline:hover {
+    background: #d97706;
+    color: #fff;
+  }
+
+  /* Секции */
+  section { padding: 60px 0; }
+  section h2 {
+    font-size: 32px;
+    color: #1a7a8c;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #d97706;
+    margin: 15px auto 0;
+    border-radius: 2px;
+  }
+  .section-subtitle {
+    text-align: center;
+    color: #718096;
+    font-size: 17px;
+    max-width: 700px;
+    margin: 0 auto 45px;
+  }
+
+  /* Продукция */
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+  }
+  .product-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #e8eef2;
+  }
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  }
+  .product-image {
+    height: 220px;
+    background: linear-gradient(135deg, #e8f4f8, #fff8e7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+  }
+  .product-body { padding: 25px; }
+  .product-body h3 {
+    font-size: 22px;
+    color: #1a7a8c;
+    margin-bottom: 10px;
+  }
+  .product-body p {
+    color: #4a5568;
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
+  .product-specs {
+    list-style: none;
+    font-size: 14px;
+    color: #718096;
+    margin-bottom: 15px;
+  }
+  .product-specs li { padding: 4px 0; }
+  .product-specs li::before {
+    content: '✓ ';
+    color: #2ba3b8;
+    font-weight: bold;
+  }
+  .price-tag {
+    display: inline-block;
+    background: #fff8e7;
+    color: #d97706;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 15px;
+  }
+
+  /* Преимущества */
+  .features {
+    background: #f7fafc;
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+  }
+  .feature {
+    background: #fff;
+    padding: 30px 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  .feature-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+  }
+  .feature h4 {
+    font-size: 18px;
+    color: #1a7a8c;
+    margin-bottom: 10px;
+  }
+  .feature p {
+    font-size: 14px;
+    color: #718096;
+  }
+
+  /* Условия */
+  .terms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .term {
+    background: #fff;
+    border-left: 4px solid #d97706;
+    padding: 20px 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .term h4 {
+    color: #1a7a8c;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  .term p {
+    font-size: 14px;
+    color: #4a5568;
+  }
+
+  /* Контакты */
+  .contacts {
+    background: linear-gradient(135deg, #1a7a8c 0%, #2ba3b8 100%);
+    color: #fff;
+    text-align: center;
+  }
+  .contacts h2 { color: #fff; }
+  .contacts h2::after { background: #ffd166; }
+  .contacts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+  }
+  .contact-item {
+    background: rgba(255,255,255,0.1);
+    padding: 25px 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+  }
+  .contact-item .icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  .contact-item h4 {
+    font-size: 15px;
+    margin-bottom: 8px;
+    opacity: 0.9;
+  }
+  .contact-item a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    word-break: break-word;
+  }
+  .contact-item a:hover { color: #ffd166; }
+
+  .cta-block {
+    margin-top: 40px;
+    padding: 35px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 16px;
+  }
+  .cta-block p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  .cta-block .btn {
+    background: #ffd166;
+    color: #1a7a8c;
+  }
+  .cta-block .btn:hover {
+    background: #fff;
+    color: #1a7a8c;
+  }
+
+  /* Подвал */
+  footer {
+    background: #1a2b33;
+    color: #a0aec0;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 14px;
+  }
+  footer a { color: #2ba3b8; text-decoration: none; }
+
+  /* Адаптив */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 30px; }
+    .hero p { font-size: 16px; }
+    section h2 { font-size: 26px; }
+    .header-inner { flex-direction: column; text-align: center; }
+    .header-contacts { justify-content: center; font-size: 14px; }
+    .btn { padding: 14px 30px; font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ШАПКА -->
+<header>
+  <div class="container header-inner">
+    <div class="logo">КРЫМСКИЕ <span>ГРИССИНИ</span></div>
+    <div class="header-contacts">
+      <a href="tel:+79788620035">📞 +7 978 862 00 35</a>
+      <a href="mailto:grissini.crimea@mail.ru">✉️ grissini.crimea@mail.ru</a>
+    </div>
+  </div>
+</header>
+
+<!-- ГЛАВНЫЙ ЭКРАН -->
+<section class="hero">
+  <div class="container">
+    <h1>Хлебные палочки<br><span>«Крымские Гриссини»</span></h1>
+    <p>100% локальный продукт из Крыма. Натуральные ингредиенты, ручная формовка, авторская сувенирная упаковка. Производим с 2015 года.</p>
+    <div class="hero-badges">
+      <span class="badge">🌾 Локальные ингредиенты</span>
+      <span class="badge">🤲 Ручная формовка</span>
+      <span class="badge">🎁 Сувенирная упаковка</span>
+      <span class="badge">📦 Опт от 100 упаковок</span>
+    </div>
+    <a href="#contacts" class="btn">Запросить прайс-лист</a>
+  </div>
+</section>
+
+<!-- ПРОДУКЦИЯ -->
+<section>
+  <div class="container">
+    <h2>Наша линейка</h2>
+    <p class="section-subtitle">Три вида гриссини — каждый со своим характером. Подходят как для розницы, так и для HoReCa и подарочных наборов.</p>
+
+    <div class="products">
+      <!-- Крымские -->
+      <div class="product-card">
+        <div class="product-image">🏖️</div>
+        <div class="product-body">
+          <h3>Крымские Гриссини</h3>
+          <p>Классика с крымским характером: розмарин, розовая соль, кунжут, лён.</p>
+          <ul class="product-specs">
+            <li>В упаковке: 175 г — 102,9 ₽ с НДС</li>
+            <li>Без упаковки: 150 г — 92,4 ₽ с НДС</li>
+            <li>Партия: 50–100 шт.</li>
+          </ul>
+          <span class="price-tag">от 92,4 ₽</span>
+        </div>
+      </div>
+
+      <!-- Кубанские -->
+      <div class="product-card">
+        <div class="product-image">🌻</div>
+        <div class="product-body">
+          <h3>Кубанские Гриссини</h3>
+          <p>Кубанский колорит: вяленые томаты, чеснок, кунжут, лён.</p>
+          <ul class="product-specs">
+            <li>В упаковке: 175 г — 106,5 ₽ с НДС</li>
+            <li>Без упаковки: 150 г — 95,55 ₽ с НДС</li>
+            <li>Партия: 50–100 шт.</li>
+          </ul>
+          <span class="price-tag">от 95,55 ₽</span>
+        </div>
+      </div>
+
+      <!-- Кавказские -->
+      <div class="product-card">
+        <div class="product-image">⛰️</div>
+        <div class="product-body">
+          <h3>Кавказские Гриссини</h3>
+          <p>Кавказские мотивы: сванская соль, кунжут, лён, чеснок.</p>
+          <ul class="product-specs">
+            <li>В упаковке: 175 г — 108,15 ₽ с НДС</li>
+            <li>Без упаковки: 150 г — 97,65 ₽ с НДС</li>
+            <li>Партия: 50–100 шт.</li>
+          </ul>
+          <span class="price-tag">от 97,65 ₽</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ПРЕИМУЩЕСТВА -->
+<section class="features">
+  <div class="container">
+    <h2>Почему мы</h2>
+    <p class="section-subtitle">Продукт, который выделяется на полке и запоминается покупателю.</p>
+
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">🌿</div>
+        <h4>Локальный продукт</h4>
+        <p>Ингредиенты выращены в Крыму. Уникальный «местный» вкус, который не спутать с импортными аналогами.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🎨</div>
+        <h4>Авторская упаковка</h4>
+        <p>Яркий дизайн, который работает как сувенир. Отличный вариант для подарка из Крыма.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">💰</div>
+        <h4>Выгодная цена</h4>
+        <p>Доступнее импортных аналогов при сопоставимом качестве. Хорошая маржа для партнёров.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🤝</div>
+        <h4>Надёжный поставщик</h4>
+        <p>Работаем с 2015 года. Прямые поставки, стабильные объёмы, гибкие условия.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🍷</div>
+        <h4>Сочетается с вином</h4>
+        <p>Идеальная закуска к вину и сыру. Уже представлены в КубаньВино, Фанагория, Золотая Балка, Новый Свет.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📈</div>
+        <h4>Растущий бренд</h4>
+        <p>В 2026 году модернизируем производство и расширяем линейку. Присоединяйтесь к росту.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- УСЛОВИЯ ПОСТАВКИ -->
+<section>
+  <div class="container">
+    <h2>Условия поставки</h2>
+    <p class="section-subtitle">Прозрачные условия для оптовых партнёров и торговых сетей.</p>
+
+    <div class="terms-grid">
+      <div class="term">
+        <h4>📦 Минимальный заказ</h4>
+        <p>От 100 упаковок. График отгрузок — 1 раз в неделю.</p>
+      </div>
+      <div class="term">
+        <h4>🚚 Доставка</h4>
+        <p>Бесплатно при заказе от 100 шт. до 100 км. Либо до транспортной компании.</p>
+      </div>
+      <div class="term">
+        <h4>💳 Оплата</h4>
+        <p>Отсрочка 14–30 календарных дней с момента поступления товара на склад покупателя.</p>
+      </div>
+      <div class="term">
+        <h4>📅 Сроки</h4>
+        <p>Формирование заказа на отгрузку — 10 рабочих дней. Уведомление об изменениях — в течение 1 дня.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- КОНТАКТЫ -->
+<section class="contacts" id="contacts">
+  <div class="container">
+    <h2>Свяжитесь с нами</h2>
+    <p class="section-subtitle" style="color: rgba(255,255,255,0.85);">Готовы обсудить сотрудничество, выслать прайс и образцы.</p>
+
+    <div class="contacts-grid">
+      <div class="contact-item">
+        <div class="icon">📞</div>
+        <h4>Телефон</h4>
+        <a href="tel:+79788620035">+7 978 862 00 35</a>
+      </div>
+      <div class="contact-item">
+        <div class="icon">✉️</div>
+        <h4>Email</h4>
+        <a href="mailto:grissini.crimea@mail.ru">grissini.crimea@mail.ru</a>
+      </div>
+      <div class="contact-item">
+        <div class="icon">📍</div>
+        <h4>Адрес производства</h4>
+        <a>г. Керчь, ул. Советская, 36</a>
+      </div>
+      <div class="contact-item">
+        <div class="icon">🏢</div>
+        <h4>Производитель</h4>
+        <a>ООО «Булкино» / ООО «Артмосфериум»</a>
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <p>Хотите получить прайс-лист и условия для оптовых партнёров?</p>
+      <a href="tel:+79788620035" class="btn">Позвонить сейчас</a>
+      &nbsp;&nbsp;
+      <a href="mailto:grissini.crimea@mail.ru?subject=Запрос прайс-листа Крымские Гриссини" class="btn" style="background: #fff; color: #1a7a8c;">Написать на email</a>
+    </div>
+  </div>
+</section>
+
+<!-- ПОДВАЛ -->
+<footer>
+  <div class="container">
+    <p>© 2015–2026 ТМ «Крымские Гриссини». ООО «Булкино» / ООО «Артмосфериум». Керчь, Крым.</p>
+    <p style="margin-top: 8px;">Сайт: <a href="https://grissini.shop">grissini.shop</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
