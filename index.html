@@ -274,6 +274,25 @@
     font-style: italic;
   }
 
+  /* Форма заявки */
+  .form-section {
+    background: linear-gradient(135deg, #e8f4f8 0%, #fff8e7 100%);
+  }
+  .form-wrapper {
+    max-width: 750px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  }
+  .form-wrapper iframe {
+    width: 100%;
+    min-height: 700px;
+    border: none;
+    border-radius: 12px;
+  }
+
   /* Условия */
   .terms-grid {
     display: grid;
@@ -418,6 +437,8 @@
     .float-btn { width: 48px; height: 48px; }
     .float-btn svg { width: 24px; height: 24px; }
     .product-image { height: 220px; }
+    .form-wrapper { padding: 10px; }
+    .form-wrapper iframe { min-height: 800px; }
   }
 </style>
 </head>
@@ -445,7 +466,7 @@
       <span class="badge">🎁 Сувенирная упаковка</span>
       <span class="badge">📦 Опт от 100 упаковок</span>
     </div>
-    <a href="#contacts" class="btn">Запросить прайс-лист</a>
+    <a href="#form" class="btn">Запросить прайс-лист</a>
   </div>
 </section>
 
@@ -570,6 +591,19 @@
   </div>
 </section>
 
+<!-- ФОРМА ЗАЯВКИ ДЛЯ ОПТА -->
+<section class="form-section" id="form">
+  <div class="container">
+    <h2>Стать оптовым партнёром</h2>
+    <p class="section-subtitle">Оставьте заявку — вышлем прайс-лист, условия и образцы. Работаем с магазинами, сетями и HoReCa.</p>
+
+    <div class="form-wrapper">
+      <script src="https://forms.yandex.ru/_static/embed.js"></script>
+      <iframe src="https://forms.yandex.ru/u/6acb398d2c4f89cf6f55a53c?iframe=1" frameborder="0" name="ya-form-6acb398d2c4f89cf6f55a53c" width="650"></iframe>
+    </div>
+  </div>
+</section>
+
 <!-- УСЛОВИЯ ПОСТАВКИ -->
 <section>
   <div class="container">
@@ -653,10 +687,4 @@
   <a href="https://t.me/+79788620035" class="float-btn float-tg" target="_blank" rel="noopener" title="Telegram">
     <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
   </a>
-  <a href="https://max.ru/u/79788620035" class="float-btn float-max" target="_blank" rel="noopener" title="MAX">
-    <svg viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18l7.5 3.75L12 11.68 4.5 7.93 12 4.18zM4 9.5l7 3.5v6.32l-7-3.5V9.5zm9 9.82V13l7-3.5v6.32l-7 3.5z"/></svg>
-  </a>
-</div>
-
-</body>
-</html>
+  <a href="https://max.ru/u/
