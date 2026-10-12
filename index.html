@@ -15,7 +15,6 @@
   }
   .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-  /* Шапка */
   header {
     background: linear-gradient(135deg, #1a7a8c 0%, #2ba3b8 100%);
     color: #fff;
@@ -32,11 +31,7 @@
     flex-wrap: wrap;
     gap: 15px;
   }
-  .logo {
-    font-size: 22px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-  }
+  .logo { font-size: 22px; font-weight: bold; letter-spacing: 0.5px; }
   .logo span { color: #ffd166; }
   .header-contacts {
     display: flex;
@@ -45,14 +40,9 @@
     flex-wrap: wrap;
     font-size: 15px;
   }
-  .header-contacts a {
-    color: #fff;
-    text-decoration: none;
-    transition: opacity 0.3s;
-  }
+  .header-contacts a { color: #fff; text-decoration: none; transition: opacity 0.3s; }
   .header-contacts a:hover { opacity: 0.8; }
 
-  /* Главный экран */
   .hero {
     position: relative;
     min-height: 520px;
@@ -73,18 +63,8 @@
     text-shadow: 0 2px 10px rgba(0,0,0,0.3);
   }
   .hero h1 span { color: #ffd166; }
-  .hero p {
-    font-size: 19px;
-    margin-bottom: 30px;
-    text-shadow: 0 1px 5px rgba(0,0,0,0.3);
-  }
-  .hero-badges {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 35px;
-  }
+  .hero p { font-size: 19px; margin-bottom: 30px; text-shadow: 0 1px 5px rgba(0,0,0,0.3); }
+  .hero-badges { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 35px; }
   .badge {
     background: rgba(255,255,255,0.15);
     border: 1px solid rgba(255,255,255,0.4);
@@ -114,18 +94,8 @@
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(217, 119, 6, 0.5);
   }
-  .btn-outline {
-    background: transparent;
-    border: 2px solid #d97706;
-    color: #d97706;
-    box-shadow: none;
-  }
-  .btn-outline:hover {
-    background: #d97706;
-    color: #fff;
-  }
+  .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
-  /* Секции */
   section { padding: 70px 0; }
   section h2 {
     font-size: 34px;
@@ -150,7 +120,6 @@
     margin: 0 auto 45px;
   }
 
-  /* Продукция */
   .products {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -171,44 +140,15 @@
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.12);
   }
-  .product-image {
-    height: 280px;
-    overflow: hidden;
-    background: #e8f4f8;
-  }
-  .product-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s;
-  }
-  .product-card:hover .product-image img {
-    transform: scale(1.05);
-  }
+  .product-image { height: 280px; overflow: hidden; background: #e8f4f8; }
+  .product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+  .product-card:hover .product-image img { transform: scale(1.05); }
   .product-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
-  .product-body h3 {
-    font-size: 22px;
-    color: #1a7a8c;
-    margin-bottom: 10px;
-  }
-  .product-body p {
-    color: #4a5568;
-    font-size: 15px;
-    margin-bottom: 15px;
-  }
-  .product-specs {
-    list-style: none;
-    font-size: 14px;
-    color: #718096;
-    margin-bottom: 15px;
-    flex-grow: 1;
-  }
+  .product-body h3 { font-size: 22px; color: #1a7a8c; margin-bottom: 10px; }
+  .product-body p { color: #4a5568; font-size: 15px; margin-bottom: 15px; }
+  .product-specs { list-style: none; font-size: 14px; color: #718096; margin-bottom: 15px; flex-grow: 1; }
   .product-specs li { padding: 4px 0; }
-  .product-specs li::before {
-    content: '✓ ';
-    color: #2ba3b8;
-    font-weight: bold;
-  }
+  .product-specs li::before { content: '✓ '; color: #2ba3b8; font-weight: bold; }
   .price-tag {
     display: inline-block;
     background: #fff8e7;
@@ -220,7 +160,63 @@
     align-self: flex-start;
   }
 
-  /* Преимущества */
+  /* Блок розничной покупки */
+  .retail { background: #fff8e7; }
+  .retail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+  }
+  .retail-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+  }
+  .retail-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    border-color: #d97706;
+  }
+  .retail-icon { font-size: 48px; margin-bottom: 15px; }
+  .retail-card h3 {
+    font-size: 19px;
+    color: #1a7a8c;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .retail-card .retail-weight {
+    color: #718096;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  .retail-price {
+    font-size: 28px;
+    font-weight: 700;
+    color: #d97706;
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+  .retail-price span { font-size: 16px; color: #718096; font-weight: 400; }
+  .retail-card .btn { width: 100%; padding: 14px 20px; font-size: 16px; }
+
+  .retail-note {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 12px;
+    color: #4a5568;
+    font-size: 15px;
+  }
+  .retail-note strong { color: #1a7a8c; }
+
   .features { background: #f7fafc; }
   .features-grid {
     display: grid;
@@ -236,17 +232,10 @@
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   }
   .feature-icon { font-size: 40px; margin-bottom: 15px; }
-  .feature h4 {
-    font-size: 18px;
-    color: #1a7a8c;
-    margin-bottom: 10px;
-  }
+  .feature h4 { font-size: 18px; color: #1a7a8c; margin-bottom: 10px; }
   .feature p { font-size: 14px; color: #718096; }
 
-  /* Где нас найти */
-  .where {
-    background: linear-gradient(135deg, #fff8e7 0%, #e8f4f8 100%);
-  }
+  .where { background: linear-gradient(135deg, #fff8e7 0%, #e8f4f8 100%); }
   .where-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -274,10 +263,7 @@
     font-style: italic;
   }
 
-  /* Форма заявки */
-  .form-section {
-    background: linear-gradient(135deg, #e8f4f8 0%, #fff8e7 100%);
-  }
+  .form-section { background: linear-gradient(135deg, #e8f4f8 0%, #fff8e7 100%); }
   .form-wrapper {
     max-width: 750px;
     margin: 0 auto;
@@ -286,14 +272,8 @@
     padding: 20px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.1);
   }
-  .form-wrapper iframe {
-    width: 100%;
-    min-height: 700px;
-    border: none;
-    border-radius: 12px;
-  }
+  .form-wrapper iframe { width: 100%; min-height: 700px; border: none; border-radius: 12px; }
 
-  /* Условия */
   .terms-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -307,14 +287,9 @@
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   }
-  .term h4 {
-    color: #1a7a8c;
-    font-size: 16px;
-    margin-bottom: 8px;
-  }
+  .term h4 { color: #1a7a8c; font-size: 16px; margin-bottom: 8px; }
   .term p { font-size: 14px; color: #4a5568; }
 
-  /* Контакты */
   .contacts {
     background: linear-gradient(135deg, #1a7a8c 0%, #2ba3b8 100%);
     color: #fff;
@@ -335,11 +310,7 @@
     backdrop-filter: blur(10px);
   }
   .contact-item .icon { font-size: 32px; margin-bottom: 12px; }
-  .contact-item h4 {
-    font-size: 15px;
-    margin-bottom: 8px;
-    opacity: 0.9;
-  }
+  .contact-item h4 { font-size: 15px; margin-bottom: 8px; opacity: 0.9; }
   .contact-item a {
     color: #fff;
     text-decoration: none;
@@ -355,34 +326,19 @@
     background: rgba(255,255,255,0.15);
     border-radius: 16px;
   }
-  .cta-block p {
-    font-size: 18px;
-    margin-bottom: 20px;
-  }
-  .cta-buttons {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+  .cta-block p { font-size: 18px; margin-bottom: 20px; }
+  .cta-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
   .cta-block .btn { background: #ffd166; color: #1a7a8c; }
   .cta-block .btn:hover { background: #fff; color: #1a7a8c; }
-  .btn-white {
-    background: #fff !important;
-    color: #1a7a8c !important;
-  }
+  .btn-white { background: #fff !important; color: #1a7a8c !important; }
   .btn-white:hover { background: #ffd166 !important; color: #1a7a8c !important; }
   .btn-download {
     background: rgba(255,255,255,0.2) !important;
     color: #fff !important;
     border: 2px solid rgba(255,255,255,0.5) !important;
   }
-  .btn-download:hover {
-    background: #fff !important;
-    color: #1a7a8c !important;
-  }
+  .btn-download:hover { background: #fff !important; color: #1a7a8c !important; }
 
-  /* Подвал */
   footer {
     background: #1a2b33;
     color: #a0aec0;
@@ -392,7 +348,6 @@
   }
   footer a { color: #2ba3b8; text-decoration: none; }
 
-  /* Плавающие кнопки мессенджеров */
   .float-messengers {
     position: fixed;
     right: 20px;
@@ -413,8 +368,6 @@
     box-shadow: 0 4px 15px rgba(0,0,0,0.25);
     transition: transform 0.3s, box-shadow 0.3s;
     color: #fff;
-    font-weight: bold;
-    font-size: 20px;
   }
   .float-btn:hover {
     transform: scale(1.1);
@@ -425,7 +378,6 @@
   .float-max { background: #6e3aff; }
   .float-btn svg { width: 28px; height: 28px; fill: #fff; }
 
-  /* Адаптив */
   @media (max-width: 768px) {
     .hero h1 { font-size: 30px; }
     .hero p { font-size: 16px; }
@@ -466,18 +418,17 @@
       <span class="badge">🎁 Сувенирная упаковка</span>
       <span class="badge">📦 Опт от 100 упаковок</span>
     </div>
-    <a href="#form" class="btn">Запросить прайс-лист</a>
+    <a href="#retail" class="btn">Купить в розницу</a>
   </div>
 </section>
 
-<!-- ПРОДУКЦИЯ -->
+<!-- НАША ЛИНЕЙКА -->
 <section>
   <div class="container">
     <h2>Наша линейка</h2>
     <p class="section-subtitle">Три вида гриссини — каждый со своим характером. Подходят как для розницы, так и для HoReCa и подарочных наборов.</p>
 
     <div class="products">
-      <!-- Крымские -->
       <div class="product-card">
         <div class="product-image">
           <img src="crimean.jpg" alt="Крымские Гриссини — хлебные палочки">
@@ -494,7 +445,6 @@
         </div>
       </div>
 
-      <!-- Кубанские -->
       <div class="product-card">
         <div class="product-image">
           <img src="lineup.jpg" alt="Кубанские Гриссини">
@@ -511,7 +461,6 @@
         </div>
       </div>
 
-      <!-- Кавказские -->
       <div class="product-card">
         <div class="product-image">
           <img src="macro.jpg" alt="Кавказские Гриссини">
@@ -527,6 +476,72 @@
           <span class="price-tag">от 97,65 ₽</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- РОЗНИЧНАЯ ПОКУПКА -->
+<section class="retail" id="retail">
+  <div class="container">
+    <h2>Купить в розницу</h2>
+    <p class="section-subtitle">Наборы для дома, в подарок или на пробу. Отправка транспортной компанией по всей России. Минимальный заказ — 5 шт.</p>
+
+    <div class="retail-grid">
+      <!-- Набор Крымские -->
+      <div class="retail-card">
+        <div class="retail-icon">🏖️</div>
+        <h3>Крымские Гриссини</h3>
+        <p class="retail-weight">Набор 5 упаковок · 175 г каждая</p>
+        <div class="retail-price">750 <span>₽</span></div>
+        <button class="btn buy-button"
+                data-amount="75000"
+                data-description="Набор Крымские Гриссини 5 шт.">
+          Купить
+        </button>
+      </div>
+
+      <!-- Набор Кавказские -->
+      <div class="retail-card">
+        <div class="retail-icon">⛰️</div>
+        <h3>Кавказские Гриссини</h3>
+        <p class="retail-weight">Набор 5 упаковок · 175 г каждая</p>
+        <div class="retail-price">750 <span>₽</span></div>
+        <button class="btn buy-button"
+                data-amount="75000"
+                data-description="Набор Кавказские Гриссини 5 шт.">
+          Купить
+        </button>
+      </div>
+
+      <!-- Набор Кубанские -->
+      <div class="retail-card">
+        <div class="retail-icon">🌻</div>
+        <h3>Кубанские Гриссини</h3>
+        <p class="retail-weight">Набор 5 упаковок · 175 г каждая</p>
+        <div class="retail-price">750 <span>₽</span></div>
+        <button class="btn buy-button"
+                data-amount="75000"
+                data-description="Набор Кубанские Гриссини 5 шт.">
+          Купить
+        </button>
+      </div>
+
+      <!-- Набор Микс -->
+      <div class="retail-card">
+        <div class="retail-icon">🎁</div>
+        <h3>Набор Микс</h3>
+        <p class="retail-weight">6 упаковок · по 2 каждого вида</p>
+        <div class="retail-price">900 <span>₽</span></div>
+        <button class="btn buy-button"
+                data-amount="90000"
+                data-description="Набор Микс Крымские, Кавказские, Кубанские Гриссини 6 шт.">
+          Купить
+        </button>
+      </div>
+    </div>
+
+    <div class="retail-note">
+      <strong>Доставка:</strong> отправляем транспортной компанией (СДЭК, Деловые Линии, Почта России). Стоимость доставки рассчитывается индивидуально после оформления заказа. Менеджер свяжется с вами для уточнения адреса и способа доставки.
     </div>
   </div>
 </section>
@@ -595,7 +610,7 @@
 <section class="form-section" id="form">
   <div class="container">
     <h2>Стать оптовым партнёром</h2>
-    <p class="section-subtitle">Оставьте заявку — вышлем прайс-лист, условия и образцы. Работаем с магазинами, сетями и HoReCa.</p>
+    <p class="section-subtitle">Оставьте заявку — вышлем прайс-лист, условия и образцы. Работаем с магазинами, сетями и HoReCa. Опт от 100 упаковок.</p>
 
     <div class="form-wrapper">
       <script src="https://forms.yandex.ru/_static/embed.js"></script>
@@ -613,15 +628,15 @@
     <div class="terms-grid">
       <div class="term">
         <h4>📦 Минимальный заказ</h4>
-        <p>От 100 упаковок. График отгрузок — 1 раз в неделю.</p>
+        <p>Опт — от 100 упаковок. Розница — от 5 упаковок. График отгрузок — 1 раз в неделю.</p>
       </div>
       <div class="term">
         <h4>🚚 Доставка</h4>
-        <p>Бесплатно при заказе от 100 шт. до 100 км. Либо до транспортной компании.</p>
+        <p>Опт: бесплатно от 100 шт. до 100 км или до ТК. Розница: ТК по всей России за счёт покупателя.</p>
       </div>
       <div class="term">
         <h4>💳 Оплата</h4>
-        <p>Отсрочка 14–30 календарных дней с момента поступления товара на склад покупателя.</p>
+        <p>Опт: отсрочка 14–30 дней. Розница: онлайн-оплата картой через Т-Банк.</p>
       </div>
       <div class="term">
         <h4>📅 Сроки</h4>
@@ -687,4 +702,58 @@
   <a href="https://t.me/+79788620035" class="float-btn float-tg" target="_blank" rel="noopener" title="Telegram">
     <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
   </a>
-  <a href="https://max.ru/u/
+  <a href="https://max.ru/u/79788620035" class="float-btn float-max" target="_blank" rel="noopener" title="MAX">
+    <svg viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18l7.5 3.75L12 11.68 4.5 7.93 12 4.18zM4 9.5l7 3.5v6.32l-7-3.5V9.5zm9 9.82V13l7-3.5v6.32l-7 3.5z"/></svg>
+  </a>
+</div>
+
+<!-- СКРИПТ ОПЛАТЫ -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const WORKER_URL = 'https://tbank-proxy.my-kerch.workers.dev';
+  const buyButtons = document.querySelectorAll('.buy-button');
+
+  buyButtons.forEach(button => {
+    button.addEventListener('click', async function(e) {
+      e.preventDefault();
+
+      const amount = this.dataset.amount;
+      const description = this.dataset.description;
+      const orderId = 'ORDER-' + Date.now();
+
+      const originalText = this.textContent;
+      this.disabled = true;
+      this.textContent = 'Создаём заказ...';
+
+      try {
+        const response = await fetch(WORKER_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            amount: amount,
+            orderId: orderId,
+            description: description
+          })
+        });
+
+        const data = await response.json();
+
+        if (data.PaymentURL) {
+          window.location.href = data.PaymentURL;
+        } else {
+          alert('Ошибка при создании заказа: ' + (data.error || 'Неизвестная ошибка'));
+          this.disabled = false;
+          this.textContent = originalText;
+        }
+      } catch (error) {
+        alert('Ошибка соединения. Попробуйте позже или свяжитесь с нами по телефону.');
+        this.disabled = false;
+        this.textContent = originalText;
+      }
+    });
+  });
+});
+</script>
+
+</body>
+</html>
